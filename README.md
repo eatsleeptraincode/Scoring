@@ -1,1 +1,1 @@
-A LeaderBoard/Scoring system for the CrossFit204 Classic
+A LeaderBoard/Scoring system for the CrossFit204 Classic.
