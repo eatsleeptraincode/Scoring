@@ -1,0 +1,20 @@
+﻿<viewdata model="Scoring.Web.Actions.Events.EventListViewModel"/>
+
+
+<for each="var e in Model.Events">
+  <div class="row">
+
+    <div class="span2">
+      ${e.Start.ToShortTimeString()}
+    </div>
+
+    <div class="span2">
+      ${e.Name}
+    </div>
+
+    <div class="span8">
+      ${e.Description}
+    </div>
+  </div>
+</for>
+  

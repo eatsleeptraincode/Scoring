@@ -1,0 +1,8 @@
+﻿<viewdata model="Scoring.Web.Actions.Athletes.CreateAthleteViewModel"/>
+
+<formfor model="CreateAthleteViewModel">
+  <edit property="Athlete.FirstName"/>
+  <edit property="Athlete.LastName"/>
+  <edit property="Athlete.Gender"/>
+  <input type="submit" value="Create"/>
+</formfor>

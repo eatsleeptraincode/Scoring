@@ -1,0 +1,9 @@
+﻿<viewdata model="Scoring.Web.Actions.Events.CreateEventViewModel"/>
+
+<formfor model="CreateEventViewModel">
+  <edit property="Event.Number"/>
+  <edit property="Event.Name"/>
+  <edit property="Event.Description"/>
+  <edit property="Event.Start"/>
+  <input type="submit" value="Create"/>
+</formfor>

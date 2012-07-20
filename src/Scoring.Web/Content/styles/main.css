@@ -1,0 +1,87 @@
+﻿h1
+{
+    padding: 1em;
+    font-size: 3em;
+}
+
+h1 a
+{
+    color: #ffffff;
+}
+
+h1 a:hover 
+{
+    color: #ffffff;
+    background-color:#000000;
+}
+
+body 
+{
+    font-size: 1em;
+    color: #ffffff;
+    background-color:#000000;
+    text-align: center;
+}
+
+a {
+    color: #aaaaaa;
+    padding: 1em;
+}
+
+a:hover 
+{
+    color: #cccccc;
+    background-color:#333333;
+}
+
+li {
+    list-style: none;
+}
+
+.login {
+    padding: 0.5em;
+}
+
+.login a {
+    padding: 0.5em;
+}
+
+.scoreboarditem 
+{
+    margin: 2em;
+    padding: 1em;
+}
+
+.whitelink a{
+    color: #ffffff;
+}
+
+th, td
+{
+    text-align: center;
+    border:2px solid #000000;
+}
+
+th {
+    background-color: #111111;
+}
+
+tr:nth-child(even) {
+    background-color: #222222;
+}
+
+tr:nth-child(odd) {
+    background-color: #333333;
+}
+
+a.whitelink{
+    color: #ffffff;
+}
+
+input[type=text], input[type=password] {
+    width: 10em;
+}
+
+input[type=text].short {
+    width: 3em;
+}

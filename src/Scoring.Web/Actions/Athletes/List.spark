@@ -1,0 +1,30 @@
+﻿<viewdata model="Scoring.Web.Actions.Athletes.AthleteListViewModel"/>
+
+<div class="row">
+  <h2>Competitors</h2>
+</div>
+
+<div class="row">
+
+  <div class="span6">
+    <h3>Men</h3>
+    <br/>
+    <ul>
+      <li each="var a in Model.Athletes.Where(a => a.Gender == Gender.Male).OrderBy(a => a.FirstName).ThenBy(a => a.LastName)">
+        <br/>
+        ${a.FirstName} ${a.LastName}
+      </li>
+    </ul>
+  </div>
+
+  <div class="span6">
+    <h3>Women</h3>
+    <ul>
+      <li each="var a in Model.Athletes.Where(a => a.Gender == Gender.Female).OrderBy(a => a.FirstName).ThenBy(a => a.LastName)">
+        <br/>
+        ${a.FirstName} ${a.LastName}
+      </li>
+    </ul>
+  </div>
+
+</div>

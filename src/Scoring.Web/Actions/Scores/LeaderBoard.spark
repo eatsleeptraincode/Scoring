@@ -1,0 +1,141 @@
+﻿<viewdata model="Scoring.Web.Actions.Scores.LeaderBoardViewModel"/>
+
+
+<div class="row">
+  <div class="span6">
+<table id="menScores" class="tablesorter scoreboarditem">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Event 3</th>
+      <th>Event 4</th>
+      <th>Event 5</th>
+      <th>Event 6</th>
+      <th>Event 7</th>
+      <th>Event 8</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ryan Weppler</td>
+      <td>12</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Mike Warkentin</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Andrea Kaptein</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Crystal KP</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  <div class="span6">
+<table id="womenScores" class="tablesorter scoreboarditem">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Event 1</th>
+      <th>Event 2</th>
+      <th>Event 3</th>
+      <th>Event 4</th>
+      <th>Event 5</th>
+      <th>Event 6</th>
+      <th>Event 7</th>
+      <th>Event 8</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ryan Weppler</td>
+      <td>12</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Mike Warkentin</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Andrea Kaptein</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Crystal KP</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>

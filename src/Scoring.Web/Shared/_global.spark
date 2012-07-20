@@ -1,0 +1,9 @@
+﻿<use namespace="FubuMVC.Core.View" />
+<use namespace="FubuMVC.Core.SessionState"/>
+<use namespace="Scoring.Web.Actions"/>
+<use namespace="Scoring.Web.Actions.Athletes"/>
+<use namespace="Scoring.Web.Actions.Events"/>
+<use namespace="Scoring.Web.Actions.Scores"/>
+<use namespace="Scoring.Web.Models" />
+<use namespace="System.Linq"/>
+<use namespace="System.Collections.Generic"/>
