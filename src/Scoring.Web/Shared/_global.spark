@@ -1,5 +1,5 @@
 ﻿<use namespace="FubuMVC.Core.View" />
-<use namespace="FubuMVC.Core.SessionState"/>
+<use namespace="FubuMVC.Core.Security" />
 <use namespace="Scoring.Web.Actions"/>
 <use namespace="Scoring.Web.Actions.Accounts"/>
 <use namespace="Scoring.Web.Actions.Athletes"/>

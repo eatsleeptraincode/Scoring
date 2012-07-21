@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\CrossFit204ClassicLogo.png" />
     <Content Include="Content\scripts\jquery-1.7.2.min.js" />
     <Content Include="Content\scripts\jquery.tablesorter.min.js" />
     <Content Include="Content\scripts\setup.js" />
@@ -105,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\Accounts\LoginAction.cs" />
+    <Compile Include="Actions\Accounts\LogoutAction.cs" />
     <Compile Include="Actions\Athletes\CreateAction.cs" />
     <Compile Include="Actions\Athletes\DetailsAction.cs" />
     <Compile Include="Actions\Athletes\ListAction.cs" />

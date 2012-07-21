@@ -15,6 +15,7 @@ namespace Scoring.Web.Config
             Editors.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildEditor);
             Displays.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildDisplay);
             Editors.If(a => a.Accessor.Name.EndsWith("Id")).Attr("type", "hidden");
+            Editors.If(a => a.Accessor.Name.Contains("Pass")).Attr("type", "password");
             Editors.IfPropertyIs<Gender>().BuildBy(GenderBuilder);
             Editors.IfPropertyIs<ScoreType>().BuildBy(ScoreTypeBuilder);
         }

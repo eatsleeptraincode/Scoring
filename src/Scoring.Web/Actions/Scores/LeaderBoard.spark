@@ -9,7 +9,7 @@
 <table id="menScores" class="tablesorter scoreboarditem">
   <thead>
     <tr>
-      <th>Name</th>
+      <th class="columnheader">Name</th>
       <th>Event 1</th>
       <th>Event 2</th>
       <th>Event 3</th>
@@ -23,7 +23,7 @@
   </thead>
   <tbody>
     <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Male).OrderBy(s => s.Total)">
-      <td>${s.Athlete.FullName}</td>
+      <td>${this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FullName).AddClass("whitelink")}</td>
       <td>${s.Event1}</td>
       <td>${s.Event2}</td>
       <td>${s.Event3}</td>
@@ -51,7 +51,7 @@
 <table id="womenScores" class="tablesorter scoreboarditem">
   <thead>
     <tr>
-      <th>Name</th>
+      <th class="columnheader">Name</th>
       <th>Event 1</th>
       <th>Event 2</th>
       <th>Event 3</th>
@@ -65,7 +65,7 @@
   </thead>
   <tbody>
     <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Female).OrderBy(s => s.Total)">
-      <td>${s.Athlete.FullName}</td>
+      <td>${this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FullName).AddClass("whitelink")}</td>
       <td>${s.Event1}</td>
       <td>${s.Event2}</td>
       <td>${s.Event3}</td>

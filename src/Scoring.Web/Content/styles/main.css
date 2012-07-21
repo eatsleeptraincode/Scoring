@@ -74,13 +74,12 @@ th {
     background-color: #111111;
 }
 
-table {
-    margin-left: auto;
-    margin-right: auto;
+th.columnheader {
+    width: 10em;
 }
 
 td {
-    height: 3em;
+    height: 2em;
 }
 
 tr:nth-child(even) {

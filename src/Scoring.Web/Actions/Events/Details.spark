@@ -16,7 +16,7 @@
       <br/>
   <ol>
     <li each="var s in Model.Scores.Where(score => score.Athlete.Gender == Gender.Male).OrderBy(score => score.Place).ThenBy(score => score.Athlete.FullName)">
-      ${s.Athlete.FullName} (<test if="Model.Event.ScoreType == ScoreType.Time">${this.DisplayFor(s, sc => sc.Time)}</test><test if="Model.Event.ScoreType == ScoreType.Reps">${s.Reps}</test>)  ${this.LinkTo(new LogScoreRequest{AthleteId = s.Athlete.Id, EventId = Model.Event.Id}).Text("Log Score")}
+      ${this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FullName).AddClass("whitelink")} (<test if="Model.Event.ScoreType == ScoreType.Time">${this.DisplayFor(s, sc => sc.Time)}</test><test if="Model.Event.ScoreType == ScoreType.Reps">${s.Reps}</test>)  ${this.LinkTo(new LogScoreRequest{AthleteId = s.Athlete.Id, EventId = Model.Event.Id}).Text("Log Score")}
       <p></p>
     </li>
   </ol>
@@ -29,7 +29,7 @@
     <br/>
     <ol>
       <li each="var s in Model.Scores.Where(score => score.Athlete.Gender == Gender.Female).OrderBy(score => score.Place).ThenBy(score => score.Athlete.FullName)">
-        ${s.Athlete.FullName} (<test if="Model.Event.ScoreType == ScoreType.Time">${this.DisplayFor(s, sc => sc.Time)}</test><test if="Model.Event.ScoreType == ScoreType.Reps">${s.Reps}</test>)  ${this.LinkTo(new LogScoreRequest{AthleteId = s.Athlete.Id, EventId = Model.Event.Id}).Text("Log Score")}
+        ${this.LinkTo(new AthleteDetailsRequest{AthleteId = s.Athlete.Id}).Text(s.Athlete.FullName).AddClass("whitelink")} (<test if="Model.Event.ScoreType == ScoreType.Time">${this.DisplayFor(s, sc => sc.Time)}</test><test if="Model.Event.ScoreType == ScoreType.Reps">${s.Reps}</test>)  ${this.LinkTo(new LogScoreRequest{AthleteId = s.Athlete.Id, EventId = Model.Event.Id}).Text("Log Score")}
         <p></p>
       </li>
     </ol>

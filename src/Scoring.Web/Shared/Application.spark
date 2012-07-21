@@ -8,11 +8,25 @@
     <title>CrossFit204 Classic LeaderBoard</title>
   </head>
   <body>
-    
     <div class="container">
-      <h1>
-		<link to="LeaderBoardRequest" text="CrossFit204 Classic">
-      </h1>
+	  <div class="row">
+	    <div class="span2">
+		  <img src="/Content/images/CrossFit204ClassicLogo.png">  
+		</div>
+		<div class="span8">
+		  <h1>
+			<link to="LeaderBoardRequest" text="CrossFit204 Classic">
+		  </h1>
+	    </div>
+		<div class="span2">
+		<test if="this.Get<ISecurityContext>().IsAuthenticated()">
+		<span class="admin">Administration Mode</span> | ${this.LinkTo(new LogoutRequest()).Text("Sign Out")}
+		<else/>
+		${this.LinkTo(new LoginRequest()).Text("Administrator Sign In")}
+		</test>
+	    </div>
+	  </div>
+      
 	  <div class="row">
 	  <nav>
 		  <link to="AthleteListRequest" text="Competitors">

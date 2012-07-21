@@ -1,4 +1,5 @@
-﻿using FubuMVC.Core.Security;
+﻿using FubuCore.Configuration;
+using FubuMVC.StructureMap;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
@@ -10,6 +11,16 @@ namespace Scoring.Web.Config
     {
         public ConfigureStructureMap()
         {
+            Scan(s =>
+            {
+                s.TheCallingAssembly();
+                s.WithDefaultConventions();
+                s.Convention<SettingsScanner>();
+            });
+
+            For<ISettingsProvider>().Use<AppSettingsProvider>();
+            SetAllProperties(s => s.Matching(p => p.Name.EndsWith("Settings")));
+
             ForSingletonOf<IDocumentStore>()
                 .Use(ctx =>
                 {
