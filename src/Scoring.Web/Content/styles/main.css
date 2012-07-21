@@ -25,10 +25,17 @@ body
 
 a {
     color: #aaaaaa;
-    padding: 1em;
 }
 
 a:hover 
+{
+    color: #cccccc;
+}
+
+nav a {
+    padding: 1em;
+}
+nav a:hover 
 {
     color: #cccccc;
     background-color:#333333;

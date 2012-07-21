@@ -14,8 +14,10 @@
 		<link to="LeaderBoardRequest" text="CrossFit204 Classic">
       </h1>
 	  <div class="row">
-	  <link to="AthleteListRequest" text="Competitors">
-	  <link to="EventListRequest" text="Events">
+	  <nav>
+		  <link to="AthleteListRequest" text="Competitors">
+		  <link to="EventListRequest" text="Events">
+	  </nav>
 	  </div>
 	  <br/>
 	  <br/>

@@ -1,0 +1,16 @@
+﻿<viewdata model="Scoring.Web.Actions.Scores.LogScoreViewModel"/>
+
+<formfor model="LogScoreViewModel">
+
+  <test if="Model.Event.ScoreType == ScoreType.Time">
+    <edit property="Score.Time"/>
+  </test>
+
+  <test if="Model.Event.ScoreType == ScoreType.Reps">
+    <edit property="Score.Reps"/>
+  </test>
+  
+  ${this.InputFor(m => m.Athlete.Id)}
+  ${this.InputFor(m => m.Event.Id)}
+  <input type="submit" value="Log"/>
+</formfor>

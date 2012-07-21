@@ -19,53 +19,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Ryan Weppler</td>
-      <td>12</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>Mike Warkentin</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Andrea Kaptein</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Crystal KP</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+    <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Male).OrderBy(s => s.Total)">
+      <td>${s.Athlete.FirstName} ${s.Athlete.LastName}</td>
+      <td>${s.Event1}</td>
+      <td>${s.Event2}</td>
+      <td>${s.Event3}</td>
+      <td>${s.Event4}</td>
+      <td>${s.Event5}</td>
+      <td>${s.Event6}</td>
+      <td>${s.Event7}</td>
+      <td>${s.Event8}</td>
+      <td>${s.Total}</td>
     </tr>
   </tbody>
 </table>
@@ -87,53 +51,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Ryan Weppler</td>
-      <td>12</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>Mike Warkentin</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>Andrea Kaptein</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Crystal KP</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+    <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Female).OrderBy(s => s.Total)">
+      <td>${s.Athlete.FirstName} ${s.Athlete.LastName}</td>
+      <td>${s.Event1}</td>
+      <td>${s.Event2}</td>
+      <td>${s.Event3}</td>
+      <td>${s.Event4}</td>
+      <td>${s.Event5}</td>
+      <td>${s.Event6}</td>
+      <td>${s.Event7}</td>
+      <td>${s.Event8}</td>
+      <td>${s.Total}</td>
     </tr>
   </tbody>
 </table>
