@@ -1,19 +1,23 @@
 ﻿<viewdata model="Scoring.Web.Actions.Events.EventListViewModel"/>
 
+<h2>
+  Event Schedule
+</h2>
 
 <for each="var e in Model.Events">
+  
   <div class="row">
 
     <div class="span2">
-      ${e.Start.ToShortTimeString()}
+      <h2>${e.Start.ToShortTimeString()}</h2>
     </div>
 
-    <div class="span2">
-      ${e.Name}
+    <div class="span2 whitelink">
+      <h2>${this.LinkTo(new EventDetailsRequest {EventId = e.Id}).Text(e.Name)}</h2>
     </div>
 
     <div class="span8">
-      ${e.Description}
+      <h3>${e.Description}</h3>
     </div>
   </div>
 </for>

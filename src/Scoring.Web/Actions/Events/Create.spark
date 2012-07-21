@@ -5,5 +5,6 @@
   <edit property="Event.Name"/>
   <edit property="Event.Description"/>
   <edit property="Event.Start"/>
+  <edit property="Event.ScoreType"/>
   <input type="submit" value="Create"/>
 </formfor>

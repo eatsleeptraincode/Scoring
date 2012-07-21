@@ -8,5 +8,12 @@ namespace Scoring.Web.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime Start { get; set; }
+        public ScoreType ScoreType { get; set; }
+    }
+
+    public enum ScoreType
+    {
+        Time,
+        Reps
     }
 }

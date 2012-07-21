@@ -105,21 +105,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\Athletes\CreateAction.cs" />
+    <Compile Include="Actions\Athletes\DetailsAction.cs" />
     <Compile Include="Actions\Athletes\ListAction.cs" />
     <Compile Include="Actions\Events\CreateAction.cs" />
+    <Compile Include="Actions\Events\DetailsAction.cs" />
     <Compile Include="Actions\Events\ListAction.cs" />
     <Compile Include="Actions\Scores\LeaderBoardAction.cs" />
+    <Compile Include="Actions\Scores\LogAction.cs" />
     <Compile Include="Actions\UrlRoot.cs" />
     <Compile Include="Behaviours\RavenTransactionBehaviour.cs" />
     <Compile Include="Config\ConfigureFubuMvc.cs" />
     <Compile Include="Config\ConfigureHtml.cs" />
     <Compile Include="Config\ConfigureStructureMap.cs" />
+    <Compile Include="Config\TimeBuilder.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Indexes\ScoreBoardIndex.cs" />
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Score.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,10 +149,21 @@
     <Content Include="Actions\Events\Create.spark" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Actions\Events\List.spark" />
+    <Content Include="Actions\Events\List.spark">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="main.asset.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\Events\Details.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\Athletes\Details.spark" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Actions\Scores\Log.spark" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -156,7 +173,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4111</DevelopmentServerPort>
+          <DevelopmentServerPort>42174</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

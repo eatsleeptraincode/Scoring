@@ -12,7 +12,22 @@ namespace Scoring.Web.Config
     {
         public ConfigureHtml()
         {
+            Editors.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildEditor);
+            Displays.IfPropertyIs<Time>().BuildBy(TimeBuilder.BuildDisplay);
+            Editors.If(a => a.Accessor.Name.EndsWith("Id")).Attr("type", "hidden");
             Editors.IfPropertyIs<Gender>().BuildBy(GenderBuilder);
+            Editors.IfPropertyIs<ScoreType>().BuildBy(ScoreTypeBuilder);
+        }
+
+        private HtmlTag ScoreTypeBuilder(ElementRequest request)
+        {
+            var genders = Enum.GetValues(typeof(ScoreType)).Cast<ScoreType>().ToList();
+            var tag = new SelectTag(t =>
+            {
+                genders.Each(g => t.Option(g.ToString(), g));
+                t.SelectByValue((request.RawValue ?? ScoreType.Time).ToString());
+            });
+            return tag;
         }
 
         private HtmlTag GenderBuilder(ElementRequest request)

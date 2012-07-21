@@ -1,0 +1,10 @@
+﻿<viewdata model="Scoring.Web.Actions.Events.EventDetailsViewModel"/>
+
+<h2>${this.DisplayFor(m => m.Event.Name)} - ${this.DisplayFor(m => m.Event.Start)}</h2>
+<h3>${this.DisplayFor(m => m.Event.Description)}</h3>
+
+<ul>
+  <li each="var a in Model.Athletes.OrderBy(a => a.FirstName).ThenBy(a => a.LastName)">
+    ${a.FirstName} ${a.LastName} ${this.LinkTo(new LogScoreRequest{AthleteId = a.Id, EventId = Model.Event.Id}).Text("Log Score")}
+  </li>
+</ul>

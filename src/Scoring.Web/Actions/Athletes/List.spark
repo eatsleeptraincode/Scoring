@@ -12,7 +12,9 @@
     <ul>
       <li each="var a in Model.Athletes.Where(a => a.Gender == Gender.Male).OrderBy(a => a.FirstName).ThenBy(a => a.LastName)">
         <br/>
-        ${a.FirstName} ${a.LastName}
+        <span class="whitelink">
+          ${this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName) }
+        </span>
       </li>
     </ul>
   </div>
@@ -22,7 +24,9 @@
     <ul>
       <li each="var a in Model.Athletes.Where(a => a.Gender == Gender.Female).OrderBy(a => a.FirstName).ThenBy(a => a.LastName)">
         <br/>
-        ${a.FirstName} ${a.LastName}
+        <span class="whitelink">
+          ${this.LinkTo(new AthleteDetailsRequest{AthleteId = a.Id}).Text(a.FirstName + " " + a.LastName) }
+        </span>
       </li>
     </ul>
   </div>

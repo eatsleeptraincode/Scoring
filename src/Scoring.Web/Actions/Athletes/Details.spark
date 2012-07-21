@@ -1,0 +1,9 @@
+﻿<viewdata model="Scoring.Web.Actions.Athletes.AthleteDetailsViewModel"/>
+
+<h2>${this.DisplayFor(a => a.Athlete.FirstName)} ${this.DisplayFor(a => a.Athlete.LastName)}</h2>
+
+<ul>
+  <li each="var s in Model.Scores">
+    ${s.Event.Name}  ${s.Place} ( ${s.Time.Minutes} ${s.Time.Seconds} ) ( ${s.Reps} )
+  </li>
+</ul>
