@@ -19,8 +19,8 @@ namespace Scoring.Web.Actions.Events
         public EventDetailsViewModel Get(EventDetailsRequest request)
         {
             var theEvent = session.Load<Event>(request.EventId);
-            var athletes = session.Query<Athlete>();
-            var scores = session.Query<Score>().Where(s => s.EventId == request.EventId);
+            var athletes = session.Query<Athlete>().ToList();
+            var scores = session.Query<Score>().Where(s => s.EventId == request.EventId).ToList();
 
             var displays = new List<ScoreDisplay>();
             foreach (var athlete in athletes)
