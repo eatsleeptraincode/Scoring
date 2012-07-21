@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Raven.Client;
+using Raven.Client.Linq;
 using Scoring.Web.Models;
 
 namespace Scoring.Web.Actions.Events
@@ -15,7 +16,7 @@ namespace Scoring.Web.Actions.Events
 
         public EventListViewModel Get(EventListRequest request)
         {
-            var events = session.Query<Event>();
+            var events = session.Query<Event>().OrderBy(e => e.Number);
             return new EventListViewModel {Events = events};
         }
     }
