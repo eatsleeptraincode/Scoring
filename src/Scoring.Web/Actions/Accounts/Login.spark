@@ -1,0 +1,6 @@
+﻿<viewdata model="Scoring.Web.Actions.Accounts.LoginViewModel"/>
+
+<formfor model="LoginViewModel">
+  <edit property="Passcode"/>
+  <input type="submit" value="Login"/>
+</formfor>

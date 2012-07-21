@@ -1,8 +1,11 @@
 ﻿<viewdata model="Scoring.Web.Actions.Scores.LeaderBoardViewModel"/>
 
-
+<h3>Men</h3>
 <div class="row">
-  <div class="span6">
+  <div class="span2">
+    <p></p>
+  </div>
+  <div class="span10">
 <table id="menScores" class="tablesorter scoreboarditem">
   <thead>
     <tr>
@@ -20,7 +23,7 @@
   </thead>
   <tbody>
     <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Male).OrderBy(s => s.Total)">
-      <td>${s.Athlete.FirstName} ${s.Athlete.LastName}</td>
+      <td>${s.Athlete.FullName}</td>
       <td>${s.Event1}</td>
       <td>${s.Event2}</td>
       <td>${s.Event3}</td>
@@ -33,8 +36,18 @@
     </tr>
   </tbody>
 </table>
+  </div>
+  <div class="span2">
+    <p></p>
+  </div>
 </div>
-  <div class="span6">
+<h3>Women</h3>
+
+<div class="row">
+  <div class="span2">
+    <p></p>
+  </div>
+  <div class="span10">
 <table id="womenScores" class="tablesorter scoreboarditem">
   <thead>
     <tr>
@@ -52,7 +65,7 @@
   </thead>
   <tbody>
     <tr each="var s in Model.Scores.Where(s => s.Athlete.Gender == Gender.Female).OrderBy(s => s.Total)">
-      <td>${s.Athlete.FirstName} ${s.Athlete.LastName}</td>
+      <td>${s.Athlete.FullName}</td>
       <td>${s.Event1}</td>
       <td>${s.Event2}</td>
       <td>${s.Event3}</td>
@@ -65,5 +78,8 @@
     </tr>
   </tbody>
 </table>
-</div>
+  </div>
+  <div class="span2">
+    <p></p>
+  </div>
 </div>

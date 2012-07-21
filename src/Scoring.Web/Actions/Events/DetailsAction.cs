@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FubuMVC.Core;
 using Raven.Client;
+using Raven.Client.Linq;
 using Scoring.Web.Models;
 
 namespace Scoring.Web.Actions.Events
@@ -18,7 +20,26 @@ namespace Scoring.Web.Actions.Events
         {
             var theEvent = session.Load<Event>(request.EventId);
             var athletes = session.Query<Athlete>();
-            return new EventDetailsViewModel {Event = theEvent, Athletes = athletes};
+            var scores = session.Query<Score>().Where(s => s.EventId == request.EventId);
+
+            var displays = new List<ScoreDisplay>();
+            foreach (var athlete in athletes)
+            {
+                var display = new ScoreDisplay {Athlete = athlete, Event = theEvent};
+                var score = scores.SingleOrDefault(s => s.AthleteId == athlete.Id);
+                if (score != null)
+                {
+                    display.Place = score.Place;
+                    display.Time = score.Time;
+                    display.Reps = score.Reps;
+                }else
+                {
+                    display.Place = 99;
+                }
+
+                displays.Add(display);
+            }
+            return new EventDetailsViewModel {Event = theEvent, Scores = displays};
         }
     }
 
@@ -31,6 +52,6 @@ namespace Scoring.Web.Actions.Events
     public class EventDetailsViewModel
     {
         public Event Event { get; set; }
-        public IEnumerable<Athlete> Athletes { get; set; }
+        public IEnumerable<ScoreDisplay> Scores { get; set; }
     }
 }

@@ -28,8 +28,21 @@ namespace Scoring.Web.Actions.Scores
         {
             var score = session
                             .Query<Score>()
-                            .SingleOrDefault(s => s.AthleteId == request.Athlete.Id && s.EventId == request.Event.Id)
-                            ?? new Score{AthleteId = request.Athlete.Id, EventId = request.Event.Id, Gender = request.Athlete.Gender};
+                            .SingleOrDefault(s => s.AthleteId == request.Athlete.Id && s.EventId == request.Event.Id);
+
+            if (score == null)
+            {
+                var athlete = session.Load<Athlete>(request.Athlete.Id);
+                var theEvent = session.Load<Event>(request.Event.Id);
+                score = new Score
+                                   {
+                                       AthleteId = athlete.Id,
+                                       EventId = theEvent.Id,
+                                       Gender = athlete.Gender,
+                                       ScoreType = theEvent.ScoreType,
+                                       AthleteName = athlete.FullName
+                                   };
+            }
 
             score.Reps = request.Score.Reps;
             score.Time = request.Score.Time;
@@ -37,7 +50,7 @@ namespace Scoring.Web.Actions.Scores
             session.Store(score);
             session.SaveChanges();
 
-            UpdatePlaces(request.Event.Id, request.Athlete.Gender);
+            UpdatePlaces(request.Event.Id, score.Gender);
 
             return FubuContinuation.RedirectTo(new EventDetailsRequest{EventId = request.Event.Id});
         }

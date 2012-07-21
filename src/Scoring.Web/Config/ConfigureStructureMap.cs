@@ -1,4 +1,5 @@
-﻿using Raven.Client;
+﻿using FubuMVC.Core.Security;
+using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
 using StructureMap.Configuration.DSL;

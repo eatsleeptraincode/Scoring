@@ -1,5 +1,7 @@
 ﻿<viewdata model="Scoring.Web.Actions.Scores.LogScoreViewModel"/>
 
+<h3>${Model.Athlete.FullName}'s Score for ${Model.Event.Name}</h3>
+<br/>
 <formfor model="LogScoreViewModel">
 
   <test if="Model.Event.ScoreType == ScoreType.Time">

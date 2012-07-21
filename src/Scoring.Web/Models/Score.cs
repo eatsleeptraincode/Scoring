@@ -7,9 +7,11 @@
             Time = new Time();
         }
 
+        public string AthleteName { get; set; }
         public string AthleteId { get; set; }
         public string EventId { get; set; }
         public Gender Gender { get; set; }
+        public ScoreType ScoreType { get; set; }
 
         public int Place { get; set; }
         public int Reps { get; set; }

@@ -39,13 +39,12 @@ namespace Scoring.Web.Actions.Scores
                                        })};
         }
 
-        private static int? GetPlace(IGrouping<string, ScoreDisplay> score, int eventNumber)
+        private static int? GetPlace(IEnumerable<ScoreDisplay> score, int eventNumber)
         {
             var display = score.SingleOrDefault(d => d.Event.Number == eventNumber);
-            if (display == null)
-                return null;
-            return display.Place;
-
+            return display == null
+                       ? (int?) null
+                       : display.Place;
         }
     }
 

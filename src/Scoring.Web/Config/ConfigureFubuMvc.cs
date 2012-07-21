@@ -4,6 +4,7 @@ using FubuMVC.Core.Security.AntiForgery;
 using Scoring.Web.Actions;
 using Scoring.Web.Actions.Scores;
 using Scoring.Web.Behaviours;
+using Scoring.Web.Security;
 
 namespace Scoring.Web.Config
 {
@@ -32,6 +33,7 @@ namespace Scoring.Web.Config
 
             Policies
                 .Add<AntiForgeryPolicy>()
+                .Add<AttachAuthenticationPolicy>()
                 .WrapBehaviorChainsWith<RavenTransactionBehaviour>();
 
         }

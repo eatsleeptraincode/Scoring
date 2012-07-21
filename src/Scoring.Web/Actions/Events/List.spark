@@ -3,21 +3,31 @@
 <h2>
   Event Schedule
 </h2>
+<br/>
 
 <for each="var e in Model.Events">
   
   <div class="row">
+    <br/>
 
     <div class="span2">
-      <h2>${e.Start.ToShortTimeString()}</h2>
+      <p></p>
+    </div>
+
+      <div class="span2">
+      <h3>${e.Start.ToShortTimeString()}</h3>
     </div>
 
     <div class="span2 whitelink">
-      <h2>${this.LinkTo(new EventDetailsRequest {EventId = e.Id}).Text(e.Name)}</h2>
+      <h3>${this.LinkTo(new EventDetailsRequest {EventId = e.Id}).Text(e.Name)}</h3>
     </div>
 
-    <div class="span8">
-      <h3>${e.Description}</h3>
+    <div class="span4">
+      <h4>${e.Description}</h4>
+    </div>
+
+    <div class="span2">
+      <p></p>
     </div>
   </div>
 </for>
