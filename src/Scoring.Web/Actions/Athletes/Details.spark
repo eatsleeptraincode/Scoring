@@ -7,6 +7,6 @@
 <for each="var s in Model.Scores">
   <div class="row">
     <br/>
-    ${s.Event.Name}:  ${s.Place} (<test if="s.ScoreType == ScoreType.Time">${this.DisplayFor(s, score => score.Time)}</test><test if="s.ScoreType == ScoreType.Reps">${s.Reps}</test>)
+    ${this.LinkTo(new EventDetailsRequest{EventId = s.Event.Id}).Text(s.Event.Name).AddClass("whitelink")}:  ${s.Place} (<test if="s.ScoreType == ScoreType.Time">${this.DisplayFor(s, score => score.Time)}</test><test if="s.ScoreType == ScoreType.Reps">${s.Reps}</test>)
   </div>
 </for>
