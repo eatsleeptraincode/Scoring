@@ -15,7 +15,9 @@ namespace Scoring.Web.Indexes
                               score.EventId,
                               score.AthleteId,
                               score.Time,
-                              score.Reps
+                              score.Reps,
+                              score.Gender,
+                              score.ScoreType
                           };
 
             TransformResults =
@@ -30,7 +32,9 @@ namespace Scoring.Web.Indexes
                                           score.AthleteId,
                                           score.Time,
                                           score.Reps,
-                                          score.Place
+                                          score.Place,
+                                          score.Gender,
+                                          score.ScoreType
                                       };
         }
     }

@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using FubuMVC.Core;
-using FubuMVC.Core.UI;
-using FubuMVC.Core.View;
 using Raven.Client;
 using Raven.Client.Linq;
 using Scoring.Web.Indexes;
