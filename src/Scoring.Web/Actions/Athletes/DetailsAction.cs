@@ -20,7 +20,10 @@ namespace Scoring.Web.Actions.Athletes
         public AthleteDetailsViewModel Get(AthleteDetailsRequest request)
         {
             var athlete = session.Load<Athlete>(request.AthleteId);
-            var scores = session.Query<Score,ScoreBoardIndex>().As<ScoreDisplay>().Where(a => a.AthleteId == athlete.Id);
+            var scores = session
+                            .Query<Score,ScoreBoardIndex>()
+                            .As<ScoreDisplay>()
+                            .Where(a => a.AthleteId == athlete.Id);
             return new AthleteDetailsViewModel {Athlete = athlete, Scores = scores};
         }
     }

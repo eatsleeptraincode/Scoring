@@ -32,7 +32,8 @@ namespace Scoring.Web.Actions.Events
                     display.Place = score.Place;
                     display.Time = score.Time;
                     display.Reps = score.Reps;
-                }else
+                }
+                else
                 {
                     display.Place = 99;
                 }
