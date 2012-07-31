@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
 using Raven.Client.Linq;
@@ -24,30 +25,30 @@ namespace Scoring.Web.Actions.Scores
                 .ToList()
                 .GroupBy(s => s.Athlete.Id);
 
+            var events = session.Query<Event>().OrderBy(e => e.Number).ToList();
+
             return new LeaderBoardViewModel
                        {
+                           Events = events,
                            Scores = scores.Select(score => new ScoreRow
                                                                {
                                                                    Athlete = score.First().Athlete,
                                                                    Total = score.Sum(s => s.Place),
-                                                                   Event1 = GetPlace(score, 1),
-                                                                   Event2 = GetPlace(score, 2),
-                                                                   Event3 = GetPlace(score, 3),
-                                                                   Event4 = GetPlace(score, 4),
-                                                                   Event5 = GetPlace(score, 5),
-                                                                   Event6 = GetPlace(score, 6),
-                                                                   Event7 = GetPlace(score, 7),
-                                                                   Event8 = GetPlace(score, 8)
+                                                                   Place =
+                                                                       events.Select(
+                                                                           e =>
+                                                                           new Tuple<int, int?>(e.Number,
+                                                                                                score.Any(
+                                                                                                    s =>
+                                                                                                    s.Event.Number ==
+                                                                                                    e.Number)
+                                                                                                    ? score.Single(
+                                                                                                        s =>
+                                                                                                        s.Event.Number ==
+                                                                                                        e.Number).Place
+                                                                                                    : (int?) null))
                                                                })
                        };
-        }
-
-        private static int? GetPlace(IEnumerable<ScoreDisplay> score, int eventNumber)
-        {
-            var display = score.SingleOrDefault(d => d.Event.Number == eventNumber);
-            return display == null
-                       ? (int?) null
-                       : display.Place;
         }
     }
 
@@ -58,19 +59,13 @@ namespace Scoring.Web.Actions.Scores
     public class LeaderBoardViewModel
     {
         public IEnumerable<ScoreRow> Scores { get; set; }
+        public IEnumerable<Event> Events { get; set; }
     }
 
     public class ScoreRow
     {
         public Athlete Athlete { get; set; }
-        public int? Event1 { get; set; }
-        public int? Event2 { get; set; }
-        public int? Event3 { get; set; }
-        public int? Event4 { get; set; }
-        public int? Event5 { get; set; }
-        public int? Event6 { get; set; }
-        public int? Event7 { get; set; }
-        public int? Event8 { get; set; }
+        public IEnumerable<Tuple<int, int?>> Place { get; set; }
         public int Total { get; set; }
     }
 }
