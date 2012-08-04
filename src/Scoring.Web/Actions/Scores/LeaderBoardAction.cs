@@ -21,6 +21,7 @@ namespace Scoring.Web.Actions.Scores
         {
             var scores = session
                 .Query<Score, ScoreBoardIndex>()
+                .Take(1024)
                 .As<ScoreDisplay>()
                 .ToList()
                 .GroupBy(s => s.Athlete.Id);

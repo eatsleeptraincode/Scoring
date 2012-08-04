@@ -151,7 +151,9 @@
     <Content Include="fubu-content\fubumvc-diagnostics.zip" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Actions\Scores\LeaderBoard.spark" />
+    <Content Include="Actions\Scores\LeaderBoard.spark">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Actions\Events\Create.spark" />
