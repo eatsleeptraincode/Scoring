@@ -30,10 +30,11 @@ namespace Scoring.Web.Actions.Scores
                             .Query<Score>()
                             .SingleOrDefault(s => s.AthleteId == request.Athlete.Id && s.EventId == request.Event.Id);
 
+            var theEvent = session.Load<Event>(request.Event.Id);
+
             if (score == null)
             {
                 var athlete = session.Load<Athlete>(request.Athlete.Id);
-                var theEvent = session.Load<Event>(request.Event.Id);
                 score = new Score
                                    {
                                        AthleteId = athlete.Id,
@@ -50,23 +51,29 @@ namespace Scoring.Web.Actions.Scores
             session.Store(score);
             session.SaveChanges();
 
-            UpdatePlaces(request.Event.Id, score.Gender);
+            UpdatePlaces(theEvent, score.Gender);
 
             return FubuContinuation.RedirectTo(new EventDetailsRequest{EventId = request.Event.Id});
         }
 
-        private void UpdatePlaces(string eventId, Gender gender)
+        private void UpdatePlaces(Event theEvent, Gender gender)
         {
             var scores = session
                             .Query<Score>()
                             .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
-                            .Where(s => s.EventId == eventId)
+                            .Where(s => s.EventId == theEvent.Id)
                             .Where(s => s.Gender == gender);
 
             var orderedScores = scores
                                 .OrderBy(s => s.Time.Minutes)
                                 .ThenBy(s => s.Time.Seconds)
-                                .ThenByDescending(s => s.Reps);
+                                .ThenByDescending(s => s.Reps)
+                                .ToList();
+
+            if (theEvent.Reverse)
+            {
+                orderedScores.Reverse();
+            }
 
             var i = 1;
             Score previousScore = null;

@@ -9,6 +9,7 @@ namespace Scoring.Web.Models
         public string Description { get; set; }
         public DateTime Start { get; set; }
         public ScoreType ScoreType { get; set; }
+        public bool Reverse { get; set; }
     }
 
     public enum ScoreType
