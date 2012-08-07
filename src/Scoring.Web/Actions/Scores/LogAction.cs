@@ -62,7 +62,7 @@ namespace Scoring.Web.Actions.Scores
                             .Query<Score>()
                             .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
                             .Where(s => s.EventId == theEvent.Id)
-                            .Where(s => s.Gender == gender);
+                            .Where(s => s.Gender == gender).ToList();
 
             var orderedScores = scores
                                 .OrderBy(s => s.Time.Minutes)
