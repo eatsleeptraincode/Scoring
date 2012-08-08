@@ -24,7 +24,7 @@ namespace Scoring.Web.Actions.Athletes
                             .Query<Score,ScoreBoardIndex>()
                             .As<ScoreDisplay>()
                             .Where(a => a.AthleteId == athlete.Id);
-            return new AthleteDetailsViewModel {Athlete = athlete, Scores = scores};
+            return new AthleteDetailsViewModel {Athlete = athlete, Scores = scores.OrderBy(s => s.Event.Number)};
         }
     }
 
