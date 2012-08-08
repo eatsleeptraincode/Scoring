@@ -23,7 +23,7 @@ namespace Scoring.Web.Actions.Athletes
             var scores = session
                             .Query<Score,ScoreBoardIndex>()
                             .As<ScoreDisplay>()
-                            .Where(a => a.AthleteId == athlete.Id);
+                            .Where(a => a.AthleteId == athlete.Id).ToList();
             return new AthleteDetailsViewModel {Athlete = athlete, Scores = scores.OrderBy(s => s.Event.Number)};
         }
     }
